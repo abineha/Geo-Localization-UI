@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("1.jpeg");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block w3-black">INTRODUCTION</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#menu" class="w3-button w3-block w3-black">THE CODE</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#where" class="w3-button w3-block w3-black">TRIPLET LOSS</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">UAVs in Multimedia</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white" style="font-size:90px">Geo-Localization<br>Practical</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white">Drone Satellite Matching Challenge</span>
+  </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- About Container -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">INTRODUCTION</span></h5>
+    <p>This is a University of Technology Sydney computer vision practical, authored by Zhedong Zheng. The practical explores the basis of learning shared features for different platforms. In this practical, we will learn to build a simple geo-localization system step by step.</p>
+    <p>Unmanned Aerial Vehicles (UAVs), also
+      known as drones, have emerged as a
+      powerful tool for gathering rich and
+      diverse multimedia content. The task of ground-to-aerial image geo-localization can be achieved by
+      matching a ground view query image to
+      a reference database of aerial/satellite
+      images.
+      
+      </p>
+      <br>
+    <div class="w3-panel w3-leftbar w3-light-grey">
+      <p><b>Aim:</b></p>
+      <p>Task 1: Drone-view target localization. (Drone -> Satellite) Given one drone-view image or video, the task aims to find the most similar satellite-view image to localize the target building in the satellite view.</p>
+      <p>Task 2: Drone navigation. (Satellite -> Drone) Given one satellite-view image, the drone intends to find the most relevant place (drone-view images) that it has passed by. According to its flight history, the drone could be navigated back to the target place.</p>
+    </div>
+    <br>
+    <img src="one.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+    <p style="text-align: center;"><b>Figure 1: </b>A cross-view matching example between three platforms, i.e., satellite,
+      drone and ground. The figure is credited by LPN.</p>
+    <br>
+    <img src="two.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+    <p style="text-align: center;"><b>Figure 2: </b>Different from conventional devices, UAV is a controllable aerial
+      information capture platform, and multi-view information helps to establish
+      a robust target model.</p>
+      <br>
+      
+    <div class="w3-panel w3-leftbar w3-light-grey">
+        <p><b>Overview:</b></p>
+        <p>The motivation is to simulate the real- world geo-localization scenario that we usually face an extremely large satellite-view pool. In particular, University160k extends the current University-1652 dataset with extra 167,486 satellite- view gallery distractors.</p>
+        <p>These distractor satellite- view images have a size of 1024 × 1024 and are obtained by cutting orthophoto images of real urban and surrounding areas. The larger image size ensures higher image clarity, while the wider framing range allows the images to contain more diverse scenes, such as buildings, city roads, trees, fields, and more</p>
+      </div>
+      <br>
+    
+  </div>
+</div>
+
+<!-- Menu Container -->
+<div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
+ 
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE CODE</span></h5>
+  
+    <div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+        <div class="w3-col s6 tablink">DATASETS</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+        <div class="w3-col s6 tablink">TESTING</div>
+      </a>
+    </div>
+
+    <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Part 1: Training</h5>
+      <p class="w3-text-grey">Part 1.1: Prepare Data Folder</p>
+      <p class="w3-text-grey">├── University-1652/<br>
+        │   ├── readme.txt<br>
+        │   ├── train/<br>
+        │       ├── drone/                   /* drone-view training images <br>
+        │           ├── 0001<br>
+        |           ├── 0002<br>
+        |           ...<br>
+        │       ├── street/                  /* street-view training images <br>
+        │       ├── satellite/               /* satellite-view training images     <br>  
+        │       ├── google/                  /* noisy street-view training images (collected from Google Image)<br>
+        │   ├── test/<br>
+        │       ├── query_drone/  <br>
+        │       ├── gallery_drone/  <br>
+        │       ├── query_street/  <br>
+        │       ├── gallery_street/ <br>
+        │       ├── query_satellite/  <br>
+        │       ├── gallery_satellite/ <br>
+        │       ├── 4K_drone/</p>
+      <br>
+    
+      <h5>Part 1.2: Build Neural Network (model.py)</h5>
+      <p class="w3-text-grey">We can use the pretrained networks, such as AlexNet, VGG16, ResNet and DenseNet. Generally, the pretrained networks help to achieve a better performance, since it preserves some good visual patterns from ImageNet</p>
+      <br>
+    
+      <h5>ResNet-50</h5>
+      <p class="w3-text-grey">ResNet stands for Residual Network and is a specific type of convolutional neural network (CNN). CNNs are commonly used to power computer vision applications.
+
+        ResNet-50 is a 50-layer convolutional neural network (48 convolutional layers, one MaxPool layer, and one average pool layer). Residual neural networks are a type of artificial neural network (ANN) that forms networks by stacking residual blocks.</p>
+      <p class="w3-text-grey">The ResNet architecture follows two basic design rules. First, the number of filters in each layer is the same depending on the size of the output feature map. Second, if the feature map’s size is halved, it has double the number of filters to maintain the time complexity of each layer. </p>
+      <img src="7.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+      <br><br>
+      <h5>ft_net</h5>
+    
+      <p class="w3-text-grey">But we need to modify the networks a little bit. There are 1652 classes (different buildings) in University-1652, which is different with 1,000 classes in ImageNet. So here we change the model to use our classifier.We have the data from three different platiforms, which may not share the low-level patterns. One straight-forward idea is to use backbone without sharing weights. Here we re-use the class ft_net that we just defined to build model_1 and model_2.</p><br>
+    
+      <h5>Part 1.3: Training (python train.py)</h5>
+      <p class="w3-text-grey">Now we have prepared the training data and defined model structure. Let's look at what we do in the train.py. The first thing is how to read data and their labels from the prepared folder. Using torch.utils.data.DataLoader, we can obtain two iterators dataloaders['train'] and dataloaders['val'] to read data and label. </p>
+    </div>
+
+    <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Part 2: Test</h5>
+      <p class="w3-text-grey">Part 2.1: Extracting feature (python test.py)
+        In this part, we load the network weight (we just trained) to extract the visual feature of every image. Let's look at what we do in the test.py. First, we need to import the model structure and then load the weight to the model. For every query and gallery image, we extract the feature by simply forward the data.</p><br>
+    
+      <h5>Evaluation</h5>
+      <p class="w3-text-grey">Now we have the feature of every image. The only thing we need to do is matching the images by the feature. In evaluate_gpu.py, we sort the predicted similarity score.</p><br>
+    
+      <h5>Classification</h5>
+      <p class="w3-text-grey">Note that there are two kinds of images we do not consider as right-matching images.<br>
+
+        Junk_index1 is the index of mis-detected images, which contain the body parts.<br>
+        
+        Junk_index2 is the index of the images, which are of the same identity in the same cameras.<br>
+        We can use the function compute_mAP to obtain the final result. In this function, we will ignore the junk_index.</p><br>
+    
+      <h5>Result</h5>
+      <p class="w3-text-grey">Ground:</p>
+      <img src="o1.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;justify-content: center;" class="w3-margin-top">
+      <br>
+      <p class="w3-text-grey">Satellite:</p>
+      <img src="o2.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+      <br>
+      <p class="w3-text-grey">Drone:</p>
+      <img src="o3.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+      <br>
+      <p class="w3-text-grey">Output:</p>
+      <img src="SIFT_Demo.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+      <br>
+
+    
+      
+    </div>  
+  
+  </div>
+</div>
+
+<!-- Contact/Area Container -->
+<div class="w3-container" id="where" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">TRIPLET LOSS</span></h5>
+    <p><b>Methods:</b></p>
+    <p>
+      A hard exemplar mining strategy is
+      based on triplet reweighting, and
+      weight allocated to each triplet is
+      computed according to its difficulty
+      level. Given a triplet of anchor Ai, its
+      positive exemplar Pi, and negative
+      exemplar Ni,k :
+      where m is the max-margin, dp(i) and
+      dn(i) are the squared Euclidean
+      distance between Ai,Pi and Ai,Ni.
+      
+      </p>
+      <br>
+    <img src="four.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+    <p style="text-align: center;"><b>Figure 1: </b> A diagram of the spatial attention submodule.</p>
+    <br>
+    <img src="8.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+    <p style="text-align: center;"><b>Figure 2: </b>  A diagram of the modified building block. This building block is produced by integrating the proposed FCAM into the basic
+      residual block</p>
+    <br>
+    <div class="w3-panel w3-leftbar w3-light-grey">
+      <p><b>Triplet Diagram:</b></p>
+      <br>
+    <img src="9.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+    <p style="text-align: center;"><b>Figure 3: </b> The triplet diagram plots a triplet as a dot defined by the anchor-positive
+      similarity Sap on the x-axis and the anchor-negative similarity San on the y-axis. Dots
+      below the diagonal correspond to triplets that are “correct”, in the sense that the same
+      class example is closer than the different class example. Triplets above the diagonal of
+      the diagram are candidates for the hard negative triplets. They are important because
+      they indicate locations where the semantic mapping is not yet correct. However,
+      previous works have typically avoided these triplets because of optimization challenges.</p>
+    </div>
+    <br>
+    <img src="five.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+    <br>
+    <p><b>Definition of the Loss:</b></p>
+    <img src="10.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+    <p style="text-align: center;"><b><p style="text-align: center;"></b> A diagram of the spatial attention submodule.</p>
+    <br>
+    <p>
+      <b>The goal of the triplet loss is to make sure that:</b><br>
+
+      Two examples with the same label have their embeddings close together in the embedding space<br>
+      Two examples with different labels have their embeddings far away.<br>
+      
+      </p>
+    <br>
+    <p>
+      <b>To formalise this requirement, the loss will be defined over triplets of embeddings:</b><br>
+      <img src="11.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+      </p>
+      <br>
+      <p>
+        <b>Triplet mining:</b><br>
+        Based on the definition of the loss, there are three categories of triplets:<br>
+        <img src="12.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+        <br><br>
+        Each of these definitions depend on where the negative is, relatively to the anchor and positive. We can therefore extend these three categories to the negatives: hard negatives, semi-hard negatives or easy negatives.<br>
+        <br>
+        <img src="13.png" style="width:100%;max-width:1000px;border: 2.5px solid #020202;" class="w3-margin-top">
+        <br>
+        </p>
+    
+    
+  </div>
+</div>
+
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <p>We have proposed a cross-view geo-localization method by matching
+    ground-view images to aerial
+    images and introduced a lightweight
+    dual attention module to improve
+    the representation capability of
+    CNN features.
+    </p>
+</footer>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>
